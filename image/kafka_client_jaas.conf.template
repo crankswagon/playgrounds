@@ -1,0 +1,8 @@
+KafkaClient {
+  org.apache.kafka.common.security.plain.PlainLoginModule required
+  serviceName="kafka"
+  security.protocol=SASL_SSL
+  sasl.mechanisms=PLAIN
+  username="user"
+  password="userpassword";
+};

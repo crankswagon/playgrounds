@@ -90,6 +90,13 @@ ADD ./flink-1.14-SNAPSHOT /opt/flink
 COPY ./flink-sql-connector-kafka_2.11-1.13.0.jar /opt/flink/lib/
 COPY ./flink-sql-avro-confluent-registry-1.13.0.jar /opt/flink/lib/
 
+# Add connection config file to Confluent Kafka cluster
+# apparently it's a workaround, details at See FLINK-3929
+# so once this is pushed to the cluster, it can be referenced with  'properties.sasl.jaas.config' = '/tmp/kafka_client_jaas.cnf', while invoking tables API
+# refer to ./kafka_client_jaas.conf for jaas configuration syntax, or refer to java8's doc https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/LoginConfigFile.html
+COPY ./kafka_client_jaas.conf /tmp/kafka_client_jaas.cnf
+
+
 
 # Configure container
 COPY docker-entrypoint.sh /

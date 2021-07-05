@@ -12,3 +12,4 @@ image/apache-flink-1.13.1.tar.gz
 image/flink-sql-avro-confluent-registry-1.13.0.jar
 image/flink-sql-connector-kafka_2.11-1.13.0.jar
 examples/table/window_agg.py
+image/kafka_client_jaas.conf
