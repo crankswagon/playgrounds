@@ -6,14 +6,36 @@ Playgrounds aims to provide a quick-start environment and examples for users to 
 Please checkout specific branches on how to use PyFlink in a specific Flink version as PyFlink is still in active development and more and more functionalities are added in each version.
 
 
-# Prepar libraries
+# Prepare libraries
 ```yaml
 Download relevant libraries for pyflink and add to ./image
 https://pypi.org/project/apache-flink-libraries/
 https://pypi.org/project/apache-flink/
 ```
 
+# Build Flink from source
+```bash
+#Refer to https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/flinkdev/building/
+#on MacOS, need jdk8 and maven 3.2.5
+brew install maven@3.2
 
+#install jdk 8 and set JDK 
+java -version
+#java version "1.8.0_291"
+#Java(TM) SE Runtime Environment (build 1.8.0_291-b10)
+#Java HotSpot(TM) 64-Bit Server VM (build 25.291-b10, mixed mode)
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_291`
+
+
+#grab flink source
+git clone https://github.com/apache/flink.git
+
+#build flink
+mvn clean install -DskipTests
+
+#symlink or move build target to ./image
+#docker file will reference ./image/flink-1.14-SNAPSHOT
+```
 
 # Create Docker Image
 
