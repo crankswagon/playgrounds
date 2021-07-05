@@ -5,16 +5,26 @@ Playgrounds aims to provide a quick-start environment and examples for users to 
 
 Please checkout specific branches on how to use PyFlink in a specific Flink version as PyFlink is still in active development and more and more functionalities are added in each version.
 
+
+# Prepar libraries
+```yaml
+Download relevant libraries for pyflink and add to ./image
+https://pypi.org/project/apache-flink-libraries/
+https://pypi.org/project/apache-flink/
+```
+
+
+
 # Create Docker Image
 
 ```bash
 cd image
  
 # create docker image
-docker build --tag pyflink/playgrounds:1.13.0-rc2 .
+docker build --tag pyflink/playgrounds:1.14 .
 
 # publish docker image
-docker push pyflink/playgrounds:1.13.0-rc2
+docker push pyflink/playgrounds:1.14
 ```
 
 # Environment Setup
